@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        .red-star {
+            color: red;
+        }
+
+        body {
+            background-color: rgba(228, 220, 220, 0.315);
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .container {
+            background-color: white;
+            display: flex;
+            height: 475px;
+            width: 330px;
+            border: 0.1px solid rgb(97, 95, 95);
+            /* justify-content: center; */
+            align-items: center;
+            margin: auto;
+            margin-top: 90px;
+            box-shadow: 1px 1px 1px 1px rgb(110, 109, 109);
+        }
+
+        .loginpage {
+            margin: 20px;
+        }
+
+        input {
+            padding: 7px;
+            width: 100%;
+            margin: auto;
+            width: 100%;
+        }
+
+        .element {
+            margin: 10px;
+        }
+
+        #btn {
+            width: 100%;
+            padding: 10px;
+            background-color: rgb(36, 36, 158);
+            color: white;
+            font-weight: bolder;
+        }
+
+        #ninput {
+            width: 10px;
+        }
+
+        #picss {
+            height: 100px;
+            width: 100px;
+        }
+
+        #webcam {
+            height: 100px;
+            width: 100px;
+        }
+
+        #camm {
+            /* border: 2px solid tomato;
+            display: flex;
+            position: relative; */
+            width: 100px;
+            height: 100px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="loginpage">
+            <div id="camm" class="element">
+                <video id="webcam" autoplay playsinline></video>
+                <canvas id="canvas"></canvas>
+            </div>
+            <form action="noaction.php" method="post">
+                <div class="element">
+                    <label for="Email">Email<span class="red-star"> <sup> *</sup></span></label>
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
+                <div class="element">
+                    <label for="password">Password<span class="red-star"> <sup> *</sup></span></label>
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
+                <div class="element" id="neww">
+                    <input id="ninput" type="checkbox">
+                    <span> <label for="password">Show Password</label></span>
+                </div>
+                <button id="btn" type="submit">LOG IN</button>
+            </form>
+            <div class="element">
+                <span class="psw"><a href="#">Forgot password?</a></span>
+            </div>
+        </div>
+    </div>
+    <script>
+        const webcamElement = document.getElementById('webcam');
+        const canvasElement = document.getElementById('canvas');
+        const webcam = new Webcam(webcamElement, 'user', canvasElement);
+        webcam.start()
+    </script>
+</body>
+
+</html>
